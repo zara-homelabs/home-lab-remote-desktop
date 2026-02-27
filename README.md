@@ -1,80 +1,34 @@
-# home-lab-remote-desktop
-Virtual lab project configuring Remote Desktop between Windows 11 and Ubuntu 22.04 using VMware.
+# 🖥️ Virtual Lab Project – Remote Desktop Configuration
 
-🖥 Virtual Lab – Remote Desktop Configuration
-📌 Project Overview
+## 📌 Overview
+Built a home lab using VMware Workstation to practice networking and remote desktop troubleshooting skills.
 
-Built a virtual lab using VMware Workstation to configure remote desktop access between Windows 11 and Ubuntu 22.04.
+## 🛠 Lab Setup
+- Host OS: Windows 11
+- VM 1: Ubuntu 22.04 LTS
+- VM 2: Windows 11 Pro
+- Network Mode: Host-Only
 
-This project demonstrates hands-on experience with:
+## 🌐 Networking
+- Assigned static IP addresses
+- Verified connectivity using ping
+- Confirmed bidirectional communication
 
-Virtualisation
+## 🖥 Remote Desktop Configuration
+- Installed xrdp on Ubuntu
+- Configured .xsession
+- Restarted xrdp service
+- Connected from Windows using Remote Desktop (mstsc)
 
-Host-only networking
+## 🔧 Troubleshooting
+- Resolved Wayland session issue
+- Fixed network mode mismatch (NAT vs Host-only)
+- Diagnosed "Destination host unreachable"
+- Verified service status using systemctl
 
-IP configuration
-
-Linux service management
-
-Remote Desktop Protocol (RDP)
-
-Troubleshooting display/session conflicts
-
-🧱 Environment
-
-Host OS: Windows 11
-VM1: Ubuntu 22.04 LTS
-VM2: Windows 11 Pro
-Network Mode: Host-Only
-
-🌐 Network Configuration
-
-Configured both virtual machines on Host-Only networking.
-
-Ubuntu IP: 192.168.126.128
-Windows IP: 192.168.126.129
-
-Connectivity validated using:
-
-ping <IP address>
-🛠 Remote Desktop Setup (Ubuntu)
-
-Installed xrdp:
-
-sudo apt update
-sudo apt install xrdp -y
-sudo systemctl enable xrdp
-sudo systemctl start xrdp
-🐛 Issue Encountered – Wayland Conflict
-Problem
-
-RDP session disconnected immediately after connecting.
-
-Error observed:
-
-ibus notification should be called from the desktop session in wayland
-Root Cause
-
-Ubuntu 22.04 uses Wayland by default, which is not fully compatible with xrdp.
-
-Resolution
-
-Installed XFCE desktop environment and configured session manually:
-
-sudo apt install xfce4 xfce4-goodies -y
-echo xfce4-session > ~/.xsession
-sudo systemctl restart xrdp
-
-After configuration, RDP connection succeeded.
-
-📚 Key Learning Outcomes
-
-Understanding of NAT vs Host-only networking
-
-Remote desktop configuration in Linux
-
-Service management using systemctl
-
-Diagnosing display/session conflicts
-
-Practical troubleshooting workflow
+## 🎯 Skills Demonstrated
+- Virtual machine setup
+- Network configuration
+- Remote desktop protocols
+- Linux terminal usage
+- Troubleshooting methodology
